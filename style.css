@@ -1,0 +1,50 @@
+body {
+	background-image: url(assets/img/fondo.jpg);
+}
+
+h1 {
+	text-align: center;
+	color: #FFFFFF;
+}
+
+.convertidor {
+	margin: 0 auto;
+	width: 30%;
+	padding: 30px;
+	background-color: #948d8d;
+	box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.781);
+	border-radius: 5%;
+}
+
+label {
+	display: block;
+	margin-bottom: 10px;
+}
+
+input, select {
+	display: block;
+	width: 100%;
+	margin-bottom: 10px;
+	padding: 10px;
+	border: 1px solid #D8D8D8;
+	border-radius: 5px;
+	box-sizing: border-box;
+}
+
+button {
+	display: block;
+	margin: 0 auto;
+	background-color: #1e3841;
+	color: #FFFFFF;
+	padding: 10px 20px;
+	border-radius: 15px;
+	border: none;
+	cursor: pointer;
+}
+
+#resultado {
+	font-size: 24px;
+	font-weight: bold;
+	margin-top: 20px;
+	text-align: center;
+}
