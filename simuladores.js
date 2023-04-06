@@ -162,8 +162,15 @@ function convertir() {
 
 	const resultado = convertirMoneda(cantidad, tasa);
 
-	document.getElementById("resultado").innerHTML = "Resultado es: " + "\n" +
-		cantidad + "  " + infMonedaEscogida[0].nombre + "  = " + "\n" + resultado.toFixed(2) + "  " + infMonedaConvertir[0].nombre;
+	let contenedor = document.createElement("div");		
+	contenedor.setAttribute('class','convertidor convertidor__resultado');
+
+	//Definimos el innerHTML del elemento con una plantilla de texto
+	contenedor.innerHTML = `<h2> Resultado es: </h2>
+							<p> <b>${cantidad}</b>   ${infMonedaEscogida[0].nombre} = <b>${resultado.toFixed(2)}</b>    ${infMonedaConvertir[0].nombre}</p>`;
+
+	//Agregamos el contenedor creado al main
+	document.getElementById("principal").appendChild(contenedor);
 }
 
 // 3.... Simulador Venta de productos
