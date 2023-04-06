@@ -1,364 +1,202 @@
 //Menu de Simuladores
 
-// let entrada = prompt("ESCRIBA EL NUMERO DEL SIMULADOR QUE REQUIERE:" + "\n" +
-//     "1.  Creditos bancarios" + "\n" +
-//     "2.  Cambio de divisas" + "\n" +
-//     "3.  Venta de productos tecnologicos" + "\n" +
-//     "4.  Salir"
-// );
-//Repetimos hasta que se ingrese la opcion "4" para salir 
-while (entrada != "4") {
-    switch (entrada) {
-        case "1":
+// 1.... Simulador de Creditos Bancarios
 
-            // También podrías definir un array que funciones como historial de conversiones ó de solicitudes de créditos.
+//Simulador de Creditos Bancarios
+
+// También podrías definir un array que funciones como historial de conversiones ó de solicitudes de créditos.
+
+//Solicitamos los datos necesarios para realizar la simulacion del credito
+// let montoPrestamo = parseFloat(prompt("Ingrese el monto de dinero que necesitas"));
+// let plazoEnMeses = parseInt(prompt("Ingrese ¿A cuantos meses? requiere el prestamo"));
+// const tasaInteresAnual = 12;
 
 
-            //Simulador de Creditos Bancarios
+// function calcularPagosMensuales(monto, tasaInteresAnual, plazoEnMeses) {
+// 	// Convertimos la tasa de interés anual a una tasa de interés mensual decimal
+// 	const tasaInteresMensual = (tasaInteresAnual / 12) / 100;
+// 	console.log(tasaInteresMensual);
 
-            //Solicitamos los datos necesarios para realizar la simulacion del credito
-            let montoPrestamo = parseFloat(prompt("Ingrese el monto de dinero que necesitas"));
-            let plazoEnMeses = parseInt(prompt("Ingrese ¿A cuantos meses? requiere el prestamo"));
-            const tasaInteresAnual = 12;
+// 	// Calculamos el pago mensual utilizando la fórmula de pagos uniformes
+// 	const numerador = monto * tasaInteresMensual * Math.pow(1 + tasaInteresMensual, plazoEnMeses);
+// 	const denominador = Math.pow(1 + tasaInteresMensual, plazoEnMeses) - 1;
+// 	console.log(numerador, "Intereses");
+// 	const pagoMensual = numerador / denominador;
+// 	console.log(pagoMensual, "Precio mensual");
 
+// 	// Redondeamos el pago mensual a dos decimales
+// 	return Math.round(((pagoMensual * 100) / 100), 1);
+// }
 
-            function calcularPagosMensuales(monto, tasaInteresAnual, plazoEnMeses) {
-                // Convertimos la tasa de interés anual a una tasa de interés mensual decimal
-                const tasaInteresMensual = (tasaInteresAnual / 12) / 100;
-                console.log(tasaInteresMensual);
+// const pagoMensual = calcularPagosMensuales(montoPrestamo, tasaInteresAnual, plazoEnMeses);
 
-                // Calculamos el pago mensual utilizando la fórmula de pagos uniformes
-                const numerador = monto * tasaInteresMensual * Math.pow(1 + tasaInteresMensual, plazoEnMeses);
-                const denominador = Math.pow(1 + tasaInteresMensual, plazoEnMeses) - 1;
-                console.log(numerador, "Intereses");
-                const pagoMensual = numerador / denominador;
-                console.log(pagoMensual, "Precio mensual");
-
-                // Redondeamos el pago mensual a dos decimales
-                return Math.round(((pagoMensual * 100) / 100), 1);
-            }
-
-            const pagoMensual = calcularPagosMensuales(montoPrestamo, tasaInteresAnual, plazoEnMeses);
-
-            alert(`El pago mensual es de ${pagoMensual} pesos.`);
-            break;
-
-        case "2":
-            //Simulador de convertidor de divisas            
-
-            // Crear Clase modena
-            class Moneda {
-                constructor(nombre, id) {
-                    this.nombre = nombre
-                    this.id = id
-                }
-            }
-
-            // definimos un array para contener los objetos con la información de las divisas.            
-            const divisas = [];
-            divisas.push(new Moneda('Dolares Americanos', 'USD'));
-            divisas.push(new Moneda('Euros', 'EUR'));
-            divisas.push(new Moneda('Libras Esterlinas', 'GBP'));
-            divisas.push(new Moneda('Yenes Japoneses', 'JPY'));
-            divisas.push(new Moneda('Pesos Mexicanos', 'MXN'));
+// alert(`El pago mensual es de ${pagoMensual} pesos.`);
 
 
-            // Pedimos la moneda origen que se convertira
-            let modenaOrigen = prompt(`Escoge la moneda que desea convertir:\n
-            USD :  ${divisas[0].nombre}\n
-            EUR :  ${divisas[1].nombre}\n
-            GBP :  ${divisas[2].nombre}\n
-            JPY :  ${divisas[3].nombre}\n
-            MXN :  ${divisas[4].nombre}`).toLowerCase();
+// 2....  Simulador de convertidor de divisas  
 
-            //variable para condicion de moneda correcta
-            let escogioMoneda = false
-            let infMonedaEscogida
-
-            while (escogioMoneda === false) {
-                if (modenaOrigen === "usd") {
-                    escogioMoneda = true
-                    infMonedaEscogida = divisas.filter((el) => el.id.includes('USD'))
-                } else if (modenaOrigen === "eur") {
-                    escogioMoneda = true
-                    infMonedaEscogida = divisas.filter((el) => el.id.includes('EUR'))
-                } else if (modenaOrigen === "gbp") {
-                    escogioMoneda = true
-                    infMonedaEscogida = divisas.filter((el) => el.id.includes('GBP'))
-                } else if (modenaOrigen === "jpy") {
-                    escogioMoneda = true
-                    infMonedaEscogida = divisas.filter((el) => el.id.includes('JPY'))
-                } else if (modenaOrigen === "mxn") {
-                    escogioMoneda = true
-                    infMonedaEscogida = divisas.filter((el) => el.id.includes('MXN'))
-                } else {
-                    modenaOrigen = prompt(`Escoge UNA moneda correcta:\n
-                        USD : ${divisas[0].nombre}\n
-                        EUR : ${divisas[1].nombre}\n
-                        GBP : ${divisas[2].nombre}\n
-                        JPY : ${divisas[3].nombre}\n
-                        MXN : ${divisas[4].nombre}`).toLowerCase();
-                }
-            }
-            alert(`Divisa escogida es:  ` + infMonedaEscogida[0].nombre);
-
-            // Pedimos la moneda destino a la que se convertira
-            let modenaDestino = prompt(`convertir A:\n
-            USD : ${divisas[0].nombre}\n
-            EUR : ${divisas[1].nombre}\n
-            GBP : ${divisas[2].nombre}\n
-            JPY : ${divisas[3].nombre}\n
-            MXN : ${divisas[4].nombre}`).toLowerCase();
-
-            //variable para condicion de moneda correcta
-            let escogidaConvertir = false
-            let infMonedaConvertir
-
-            while (escogidaConvertir === false) {
-                if (modenaDestino === "usd") {
-                    escogidaConvertir = true
-                    infMonedaConvertir = divisas.filter((el) => el.id.includes('USD'))
-                } else if (modenaDestino === "eur") {
-                    escogidaConvertir = true
-                    infMonedaConvertir = divisas.filter((el) => el.id.includes('EUR'))
-                } else if (modenaDestino === "gbp") {
-                    escogidaConvertir = true
-                    infMonedaConvertir = divisas.filter((el) => el.id.includes('GBP'))
-                } else if (modenaDestino === "jpy") {
-                    escogidaConvertir = true
-                    infMonedaConvertir = divisas.filter((el) => el.id.includes('JPY'))
-                } else if (modenaDestino === "mxn") {
-                    escogidaConvertir = true
-                    infMonedaConvertir = divisas.filter((el) => el.id.includes('MXN'))
-                } else {
-                    modenaDestino = prompt(`Escoge UNA moneda correcta:\n
-                    USD : ${divisas[0].nombre}\n
-                    EUR : ${divisas[1].nombre}\n
-                    GBP : ${divisas[2].nombre}\n
-                    JPY : ${divisas[3].nombre}\n
-                    MXN : ${divisas[4].nombre}`).toLowerCase();
-                }
-            }
-            alert('Divisa escogida es:  ' + infMonedaConvertir[0].nombre);
-
-            //pedimos la cantidad de dinero a convertir y la guardamos en la variable 
-            const cantidad = parseFloat(prompt("Ingrese la cantidad de dinero a convertir"));
-
-            function convertir() {
-
-                let infMonedaEscogida = false
-                let escogidaConvertir = false
-
-                // Definimos las tasas de conversión
-                let USDEUR = 0.94;
-                let USDGBP = 0.83;
-                let USDJPY = 135.84;
-                let USDMXN = 17.96;
-
-                let EURUSD = 1.07;
-                let EURGBP = 0.88;
-                let EURJPY = 144.67;
-                let EURMXN = 19.09;
-
-                let GBPUSD = 1.20;
-                let GBPEUR = 1.13;
-                let GBPJPY = 163.43;
-                let GBPMXN = 21.61;
-
-                let JPYUSD = 0.0074;
-                let JPYEUR = 0.0069;
-                let JPYGBP = 0.0061;
-                let JPYMXN = 0.13;
-
-                let MXNUSD = 0.056;
-                let MXNGBP = 0.046;
-                let MXNJPY = 7.57;
-                let MXNEUR = 0.052;
-
-
-                // Realizar la conversión
-
-                while ((escogidaConvertir === false) && (infMonedaEscogida === false)) {
-                    if ((modenaOrigen === "usd") && (modenaDestino === "eur")) {
-                        escogidaConvertir = true
-                        infMonedaEscogida = true
-                        let converted = cantidad * USDEUR;
-                        return converted;
-                    } else if ((modenaOrigen === "usd") && (modenaDestino === "gbp")) {
-                        escogidaConvertir = true
-                        infMonedaEscogida = true
-                        let converted = cantidad * USDGBP;
-                        return converted;
-                    } else if ((modenaOrigen === "usd") && (modenaDestino === "jpy")) {
-                        escogidaConvertir = true
-                        infMonedaEscogida = true
-                        let converted = cantidad * USDJPY;
-                        return converted;
-                    } else if ((modenaOrigen === "usd") && (modenaDestino === "mxn")) {
-                        escogidaConvertir = true
-                        infMonedaEscogida = true
-                        let converted = cantidad * USDMXN;
-                        return converted;
-                    } else if ((modenaOrigen === "eur") && (modenaDestino === "usd")) {
-                        escogidaConvertir = true
-                        infMonedaEscogida = true
-                        let converted = cantidad * EURUSD;
-                        return converted;
-                    } else if ((modenaOrigen === "eur") && (modenaDestino === "gbp")) {
-                        escogidaConvertir = true
-                        infMonedaEscogida = true
-                        let converted = cantidad * EURGBP;
-                        return converted;
-                    } else if ((modenaOrigen === "eur") && (modenaDestino === "jpy")) {
-                        escogidaConvertir = true
-                        infMonedaEscogida = true
-                        let converted = cantidad * EURJPY;
-                        return converted;
-                    } else if ((modenaOrigen === "eur") && (modenaDestino === "mxn")) {
-                        escogidaConvertir = true
-                        infMonedaEscogida = true
-                        let converted = cantidad * EURMXN;
-                        return converted;
-                    } else if ((modenaOrigen === "gbp") && (modenaDestino === "usd")) {
-                        escogidaConvertir = true
-                        infMonedaEscogida = true
-                        let converted = cantidad * GBPUSD;
-                        return converted;
-                    } else if ((modenaOrigen === "gbp") && (modenaDestino === "eur")) {
-                        escogidaConvertir = true
-                        infMonedaEscogida = true
-                        let converted = cantidad * GBPEUR;
-                        return converted;
-                    } else if ((modenaOrigen === "gbp") && (modenaDestino === "jpy")) {
-                        escogidaConvertir = true
-                        infMonedaEscogida = true
-                        let converted = cantidad * GBPJPY;
-                        return converted;
-                    } else if ((modenaOrigen === "gbp") && (modenaDestino === "mxn")) {
-                        escogidaConvertir = true
-                        infMonedaEscogida = true
-                        let converted = cantidad * GBPMXN;
-                        return converted;
-                    } else if ((modenaOrigen === "jpy") && (modenaDestino === "usd")) {
-                        escogidaConvertir = true
-                        infMonedaEscogida = true
-                        let converted = cantidad * JPYUSD;
-                        return converted;
-                    } else if ((modenaOrigen === "jpy") && (modenaDestino === "eur")) {
-                        escogidaConvertir = true
-                        infMonedaEscogida = true
-                        let converted = cantidad * JPYEUR;
-                        return converted;
-                    } else if ((modenaOrigen === "jpy") && (modenaDestino === "gbp")) {
-                        escogidaConvertir = true
-                        infMonedaEscogida = true
-                        let converted = cantidad * JPYGBP;
-                        return converted;
-                    } else if ((modenaOrigen === "jpy") && (modenaDestino === "mxn")) {
-                        escogidaConvertir = true
-                        infMonedaEscogida = true
-                        let converted = cantidad * JPYMXN;
-                        return converted;
-                    } else if ((modenaOrigen === "mxn") && (modenaDestino === "usd")) {
-                        escogidaConvertir = true
-                        infMonedaEscogida = true
-                        let converted = cantidad * MXNUSD;
-                        return converted;
-                    } else if ((modenaOrigen === "mxn") && (modenaDestino === "eur")) {
-                        escogidaConvertir = true
-                        infMonedaEscogida = true
-                        let converted = cantidad * MXNEUR;
-                        return converted;
-                    } else if ((modenaOrigen === "mxn") && (modenaDestino === "gbp")) {
-                        escogidaConvertir = true
-                        infMonedaEscogida = true
-                        let converted = cantidad * MXNGBP;
-                        return converted;
-                    } else if ((modenaOrigen === "mxn") && (modenaDestino === "jpy")) {
-                        escogidaConvertir = true
-                        infMonedaEscogida = true
-                        let converted = cantidad * MXNJPY;
-                        return converted;
-                    }
-                    else {
-                        alert("no se encuentra en las opciones porfavor escriba la opcion correcta")
-                        break
-                    }
-                }
-
-            }    
-            alert("Resultado es: " + "\n" +
-                cantidad + "  " + infMonedaEscogida[0].nombre + "  = " + "\n" + convertir() + "   " + infMonedaConvertir[0].nombre);
-            break;
-
-        case "3":
-
-            let menuTienda = prompt("Bienvenidos a HeroSystems" + "\n" +
-                "Selecciona la opción a realizar: " + "\n" +
-                "1. Ingresar Producto" + "\n" +
-                "2. Modificar Producto" + "\n" +
-                "3. Eliminar Producto" + "\n" +
-                "4. Mostrar Producto" + "\n" +
-                "5. Buscar producto" + "\n" +
-                "6. Salir"
-            );
-
-            while (menuTienda != "6") {
-                switch (menuTienda) {
-                    case "1":
-
-                        break;
-
-                    case "2":
-                        break;
-                    case "3":
-                        break;
-                    case "4":
-                        break;
-                    case "5":
-                        break;
-                    case "6":
-                        break;
-                }
-            }
-
-            break;
-        case "4":
-            alert("MUCHAS GRACIAS POR UTILIZAR NUESTROS SIMULADORES");
-            break;
-        default:
-            alert("ESCRIBA LA OPCION CORRECTA")
-            break;
-    }
-    entrada = prompt("ESCRIBA EL NUMERO DEL SIMULADOR QUE REQUIERE:" + "\n" +
-        "1.  Creditos bancarios" + "\n" +
-        "2.  Cambio de divisas" + "\n" +
-        "3.  Venta de productos tecnologicos" + "\n" +
-        "4.  Salir");
+function convertirMoneda(cantidad, tasa) {
+	return cantidad * tasa;
 }
 
+function convertir() {	          
 
-function convertir() {
-	// Obtener el monto en USD y la moneda de destino
-	let usd = document.getElementById("usd-input").value;
-	let divisa = document.getElementById("divisa-seleccionada").value;
-
-	// Calcular la tasa de cambio según la moneda de destino
-	let cambioTasa;
-	switch (divisa) {
-		case "MXN":
-			cambioTasa = 20.14; // Tasa de cambio USD/MXN
-			break;
-		case "EUR":
-			cambioTasa = 0.85; // Tasa de cambio USD/EUR
-			break;
-		case "JPY":
-			cambioTasa = 110.84; // Tasa de cambio USD/JPY
-			break;
+	// Crear Clase modena
+	class Moneda {
+		constructor(nombre, id) {
+			this.nombre = nombre
+			this.id = id
+		}
 	}
 
-	// Convertir el monto a la moneda de destino y mostrar el resultado
-	let result = usd * cambioTasa;
-	document.getElementById("resultado").innerHTML = result.toFixed(2) + " " + divisa;
+	// definimos un array para contener los objetos con la información de las divisas.            
+	const divisas = [];
+	divisas.push(new Moneda('Dolares Americanos', 'USD'));
+	divisas.push(new Moneda('Euros', 'EUR'));
+	divisas.push(new Moneda('Libras Esterlinas', 'GBP'));
+	divisas.push(new Moneda('Yenes Japoneses', 'JPY'));
+	divisas.push(new Moneda('Pesos Mexicanos', 'MXN'));
+
+	// Obtener la moneda origen, la moneda de destino y el monto a cambiar	
+	let monedaOrigen = document.getElementById("divisa-origen").value;
+	let monedaDestino = document.getElementById("divisa-destino").value;
+	let cantidad = document.getElementById("monto").value;
+
+	//variable para condicion de moneda correcta
+	let escogioMoneda = false
+	let infMonedaEscogida;
+
+	while (escogioMoneda === false) {
+		if (monedaOrigen === "USD") {
+			escogioMoneda = true
+			infMonedaEscogida = divisas.filter((el) => el.id.includes('USD'))
+		} else if (monedaOrigen === "EUR") {
+			escogioMoneda = true
+			infMonedaEscogida = divisas.filter((el) => el.id.includes('EUR'))
+		} else if (monedaOrigen === "GBP") {
+			escogioMoneda = true
+			infMonedaEscogida = divisas.filter((el) => el.id.includes('GBP'))
+		} else if (monedaOrigen === "JPY") {
+			escogioMoneda = true
+			infMonedaEscogida = divisas.filter((el) => el.id.includes('JPY'))
+		} else if (monedaOrigen === "MXN") {
+			escogioMoneda = true
+			infMonedaEscogida = divisas.filter((el) => el.id.includes('MXN'))
+		} else {
+			break
+		}
+	}
+
+	// console.log("Divisa escogida es: " + infMonedaEscogida[0].nombre);
+
+	//variable para condicion de moneda correcta
+	let escogidaConvertir = false
+	let infMonedaConvertir;
+
+	while (escogidaConvertir === false) {
+		if (monedaDestino === "USD") {
+			escogidaConvertir = true
+			infMonedaConvertir = divisas.filter((el) => el.id.includes('USD'))
+		} else if (monedaDestino === "EUR") {
+			escogidaConvertir = true
+			infMonedaConvertir = divisas.filter((el) => el.id.includes('EUR'))
+		} else if (monedaDestino === "GBP") {
+			escogidaConvertir = true
+			infMonedaConvertir = divisas.filter((el) => el.id.includes('GBP'))
+		} else if (monedaDestino === "JPY") {
+			escogidaConvertir = true
+			infMonedaConvertir = divisas.filter((el) => el.id.includes('JPY'))
+		} else if (monedaDestino === "MXN") {
+			escogidaConvertir = true
+			infMonedaConvertir = divisas.filter((el) => el.id.includes('MXN'))
+		} else {
+			break;
+		}
+	}
+	// console.log('Divisa escogida es:  ' + infMonedaConvertir[0].nombre);
+
+	// Definimos las tasas de conversión
+	let tasa;
+
+	if (monedaOrigen === "USD" && monedaDestino === "EUR") {
+		tasa = 0.94;
+	} else if (monedaOrigen === "USD" && monedaDestino === "JPY") {
+		tasa = 135.84;
+	} else if (monedaOrigen === "USD" && monedaDestino === "GBP") {
+		tasa = 0.83;
+	} else if (monedaOrigen === "USD" && monedaDestino === "MXN") {
+		tasa = 17.96;
+	} else if (monedaOrigen === "EUR" && monedaDestino === "USD") {
+		tasa = 1.07;
+	} else if (monedaOrigen === "EUR" && monedaDestino === "JPY") {
+		tasa = 144.67;
+	} else if (monedaOrigen === "EUR" && monedaDestino === "GBP") {
+		tasa = 0.88;
+	} else if (monedaOrigen === "EUR" && monedaDestino === "MXN") {
+		tasa = 19.09;
+	} else if (monedaOrigen === "JPY" && monedaDestino === "USD") {
+		tasa = 0.0074;
+	} else if (monedaOrigen === "JPY" && monedaDestino === "EUR") {
+		tasa = 0.0069;
+	} else if (monedaOrigen === "JPY" && monedaDestino === "GBP") {
+		tasa = 0.0061;
+	} else if (monedaOrigen === "JPY" && monedaDestino === "MXN") {
+		tasa = 0.13;
+	} else if (monedaOrigen === "GBP" && monedaDestino === "USD") {
+		tasa = 1.20;
+	} else if (monedaOrigen === "GBP" && monedaDestino === "EUR") {
+		tasa = 1.13;
+	} else if (monedaOrigen === "GBP" && monedaDestino === "JPY") {
+		tasa = 163.43;
+	} else if (monedaOrigen === "GBP" && monedaDestino === "MXN") {
+		tasa = 21.61;
+	} else if (monedaOrigen === "MXN" && monedaDestino === "USD") {
+		tasa = 0.056;
+	} else if (monedaOrigen === "MXN" && monedaDestino === "EUR") {
+		tasa = 0.052;
+	} else if (monedaOrigen === "MXN" && monedaDestino === "GBP") {
+		tasa = 0.046;
+	} else if (monedaOrigen === "MXN" && monedaDestino === "JPY") {
+		tasa = 7.57;
+	}
+
+	const resultado = convertirMoneda(cantidad, tasa);
+
+	document.getElementById("resultado").innerHTML = "Resultado es: " + "\n" +
+		cantidad + "  " + infMonedaEscogida[0].nombre + "  = " + "\n" + resultado.toFixed(2) + "  " + infMonedaConvertir[0].nombre;
 }
+
+// 3.... Simulador Venta de productos
+
+//Tienda Tecnologica
+
+// let menuTienda = prompt("Bienvenidos a HeroSystems" + "\n" +
+// 	"Selecciona la opción a realizar: " + "\n" +
+// 	"1. Ingresar Producto" + "\n" +
+// 	"2. Modificar Producto" + "\n" +
+// 	"3. Eliminar Producto" + "\n" +
+// 	"4. Mostrar Producto" + "\n" +
+// 	"5. Buscar producto" + "\n" +
+// 	"6. Salir"
+// );
+
+// while (menuTienda != "6") {
+// 	switch (menuTienda) {
+// 		case "1":
+
+// 			break;
+
+// 		case "2":
+// 			break;
+// 		case "3":
+// 			break;
+// 		case "4":
+// 			break;
+// 		case "5":
+// 			break;
+// 		case "6":
+// 			break;
+// 	}
+// }
+
 
