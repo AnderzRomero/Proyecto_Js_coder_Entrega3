@@ -1,29 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="author" content="Manfred Anderson Romero">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mejores Simuladores</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <title>Convertidor de Divisas</title>
 </head>
 
 <body>
-    <header>
-        <nav id="menu">
+    <header id="menu">
+        <nav>
             <ul>
-                <li><a href="index.html">Inicio</a></li>
+                <li><a href="../index.html">Inicio</a></li>
                 <li><a href="#">Creditos bancarios</a></li>
                 <li><a href="pages/divisas.html">Cambio de divisas</a></li>
                 <li><a href="#">Venta de productos</a></li>
             </ul>
         </nav>
     </header>
-    <main id="Bienvenida">
-        <h1>Bienvenidos a los Mejores Simuladores</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, exercitationem?</p>
+    <main>
+
+        <h1>Convertidor de Divisas</h1>
+        <div class="convertidor">
+            <label>Ingrese el monto en USD:</label>
+            <input type="number" id="usd-input" placeholder="$0.00">
+            <label>Seleccione la moneda de destino:</label>
+            <select id="divisa-seleccionada">
+                <!-- <option value="USD">USD (Dolares Americanos)</option>-->
+                <option value="EUR">EUR (Euros)</option>
+                <option value="JPY">JPY (Yen Japonés)</option>
+                <!-- <option value="GBP">GBP (Libras Esterlinas)</option>-->
+                <option value="MXN">MXN (Pesos Mexicanos)</option>
+
+
+            </select>
+            <button onclick="convertir()">Convertir</button>
+            <p id="resultado"></p>
+        </div>
     </main>
     <footer id="footer">
         <div class="container">
