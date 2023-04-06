@@ -33,13 +33,17 @@
 // alert(`El pago mensual es de ${pagoMensual} pesos.`);
 
 
-// 2....  Simulador de convertidor de divisas  
+// 2....  Simulador de convertidor de divisas
+
+ const btnConvertir = document.querySelector('#botonCovertir');
+ const btnLimpiar = document.querySelector('#botonLimpiar');
+
 
 function convertirMoneda(cantidad, tasa) {
 	return cantidad * tasa;
 }
 
-function convertir() {	          
+function convertir() {
 
 	// Crear Clase modena
 	class Moneda {
@@ -162,9 +166,8 @@ function convertir() {
 
 	const resultado = convertirMoneda(cantidad, tasa);
 
-	let contenedor = document.createElement("div");		
-	contenedor.setAttribute('class','convertidor convertidor__resultado');
-
+	let contenedor = document.createElement("div");
+	contenedor.setAttribute('class', 'convertidor convertidor__resultado');
 	//Definimos el innerHTML del elemento con una plantilla de texto
 	contenedor.innerHTML = `<h2> Resultado es: </h2>
 							<p> <b>${cantidad}</b>   ${infMonedaEscogida[0].nombre} = <b>${resultado.toFixed(2)}</b>    ${infMonedaConvertir[0].nombre}</p>`;
@@ -172,6 +175,20 @@ function convertir() {
 	//Agregamos el contenedor creado al main
 	document.getElementById("principal").appendChild(contenedor);
 }
+
+function limpiarDatos() {
+	document.getElementById("divisa-origen").value = "";
+	document.getElementById("divisa-destino").value = "";
+	document.getElementById("monto").value = "";
+	let resultados = document.getElementsByClassName("convertidor convertidor__resultado");
+	for (const resultado of resultados) {
+		resultado.remove();
+	}
+}
+
+btnConvertir.onclick = convertir;
+btnLimpiar.onclick = limpiarDatos;
+
 
 // 3.... Simulador Venta de productos
 

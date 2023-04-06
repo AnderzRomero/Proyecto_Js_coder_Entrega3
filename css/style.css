@@ -94,8 +94,11 @@ a {
 	color: #FFF;
 }
 
+.flex-botones {
+	display: flex;
+	margin-top: 2rem;
+}
 .botones {
-	display: block;
 	margin: 0 auto;
 	background-color: #1e3841;
 	color: #FFFFFF;
@@ -122,20 +125,19 @@ a {
 	color: #333;
 	border-radius: 10px;
 }
+#footer {
+	background-color: #333333b9;
+	position: relative;
+	bottom: 0;
+	width: 100%;
+	color: #fff;
+	padding: 30px 0;
+}
 
 #footer a:hover {
 	background-color: white;
 	color: #333;
 	border-radius: 50%;
-}
-
-#footer {
-	background-color: #333333b9;
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	color: #fff;
-	padding: 30px 0;
 }
 
 .container {
