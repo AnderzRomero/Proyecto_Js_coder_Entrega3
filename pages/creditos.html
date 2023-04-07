@@ -21,10 +21,21 @@
             </ul>
         </nav>
     </header>
-    <main>
+    <main id="principalCreditos">
         <h1>Creditos Bancarios</h1>
-        <div></div>
-        
+        <div id="divPrincipal" class="menuproductos">
+            <label>Ingrese el monto de dinero que necesitas:</label>
+            <input type="number" id="montoPrestamo" placeholder="$">
+            <label>Ingrese ¿A cuantos meses? requiere el prestamo:</label>
+            <input type="number" id="plazoMeses" placeholder="Meses">
+            <label>Ingrese la tasa de interes Anual:</label>
+            <input type="number" id="tasaAnual" placeholder="Tasa Interes Anual">
+            <div class="flex-botones">
+                <button class="botones" id="calcular">Calcular</button>
+                <button class="botones" id="Limpiar">Limpiar</button>
+                <button class="botones" id="historial">Historial</button>
+            </div>
+        </div>
     </main>
     <footer id="footer">
         <div class="container">
@@ -37,8 +48,8 @@
                 <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
-    </footer>   
-    <script src="../creditos.js"></script>    
+    </footer>
+    <script src="../creditos.js"></script>
     <!-- Font Awesome icons (free version)-->
     <script src="https://kit.fontawesome.com/e5d948d59a.js" crossorigin="anonymous"></script>
 </body>
