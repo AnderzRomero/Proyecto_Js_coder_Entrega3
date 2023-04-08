@@ -2,6 +2,7 @@
 
 const btnConvertir = document.querySelector('#botonCovertir');
 const btnLimpiar = document.querySelector('#botonLimpiar');
+const btnHistorial = document.querySelector('#botonHistorial');
 
 
 function convertirMoneda(cantidad, tasa) {
@@ -139,6 +140,17 @@ function convertir() {
 
 	//Agregamos el contenedor creado al main
 	document.getElementById("principal").appendChild(contenedor);
+
+	const historial = {
+		monto: cantidad,
+		escogioMoneda: infMonedaEscogida[0].nombre,
+		result: resultado,
+		convertida: infMonedaConvertir[0].nombre
+	}
+	console.log(historial);
+
+	localStorage.setItem('infoHistorialDivisas', JSON.stringify(historial))
+
 }
 
 function limpiarDatos() {
@@ -151,10 +163,23 @@ function limpiarDatos() {
 	}
 }
 
+function historialConversion() {
+	const infHistorialDivisa = localStorage.getItem('infoHistorialDivisas');
+	const ultimoHistorial = (JSON.parse(infHistorialDivisa));
+
+	let contenedorhistorial = document.createElement('div');
+	contenedorhistorial.setAttribute('class', 'convertidor convertidor__resultado');
+	contenedorhistorial.innerHTML = `<h2>Tu ultima conversion fue: </h2>
+									<p>monto:   <b>${ultimoHistorial.monto}</b></p>
+									<p>Divisa a Convetir:   <b>${ultimoHistorial.escogioMoneda}</b></p>
+									<p>Resultado:   <b>${ultimoHistorial.result}</b></p>
+									<p>Divisa Equivalente:   <b>${ultimoHistorial.convertida}</b></p>`;
+
+	//Agregamos el contenedor creado al main
+	document.getElementById("principal").appendChild(contenedorhistorial);
+
+}
+
 btnConvertir.onclick = convertir;
 btnLimpiar.onclick = limpiarDatos;
-
-
-
-
-
+btnHistorial.onclick = historialConversion;

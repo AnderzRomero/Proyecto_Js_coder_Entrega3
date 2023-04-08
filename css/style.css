@@ -90,6 +90,7 @@ a {
 	color: #9c9999;
 	font-size: 20px;
 }
+
 .convertidor__resultado b {
 	color: #FFF;
 }
@@ -98,6 +99,7 @@ a {
 	display: flex;
 	margin-top: 2rem;
 }
+
 .botones {
 	margin: 0 auto;
 	background-color: #1e3841;
@@ -125,6 +127,7 @@ a {
 	color: #333;
 	border-radius: 10px;
 }
+
 #footer {
 	background-color: #333333b9;
 	position: relative;

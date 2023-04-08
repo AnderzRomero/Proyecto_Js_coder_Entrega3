@@ -6,7 +6,6 @@ const btnCalcular = document.querySelector("#calcular");
 const btnLimpiar = document.querySelector('#Limpiar');
 const btnHistorial = document.querySelector("#historial");
 
-
 function calcularPagosMensuales() {
 
     let montoPrestamo = document.querySelector("#montoPrestamo").value;
@@ -21,7 +20,7 @@ function calcularPagosMensuales() {
     const interesesPrestamoMes = ((montoPrestamo * tasaInteresMensual) / 100);
     const interesesPlazoMeses = (interesesPrestamoMes * plazoEnMeses);
     const pagoMensual = ((montoPrestamo / plazoEnMeses) + interesesPrestamoMes);
-    
+
     let contenedor = document.createElement("div");
     contenedor.setAttribute('class', 'convertidor convertidor__resultado');
     //Definimos el innerHTML del elemento con una plantilla de texto
@@ -45,8 +44,14 @@ function limpiarDatos() {
     }
 }
 
+function historial() {
+
+}
+
+
 btnCalcular.onclick = calcularPagosMensuales;
 btnLimpiar.onclick = limpiarDatos;
+btnHistorial.onclick = historial;
 
 // alert(`El pago mensual es de $${pagoMensual} pesos.`);
 
